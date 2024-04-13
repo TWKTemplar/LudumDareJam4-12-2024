@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicFade : MonoBehaviour
 {
+    [Range(0, 1)] public float MaxMusicVolume = 1;
     public bool[] AudioSourceVolumesToggles;
     [Range(0,1)]public float[] AudioSourceVolumes;
     [Range(0,0.25f)]public float LerpSpeed;
@@ -28,7 +29,7 @@ public class MusicFade : MonoBehaviour
             AudioSourceVolumesToggles = new bool[audioSources.Length];
         for (int i = 0; i < audioSources.Length; i++)
         {
-           AudioSourceVolumes[i] = AudioSourceVolumesToggles[i] ? 1 : 0;
+           AudioSourceVolumes[i] = AudioSourceVolumesToggles[i] ? MaxMusicVolume : 0;
         }
     }
     public void UpdateLerps()
@@ -36,7 +37,7 @@ public class MusicFade : MonoBehaviour
         for (int i = 0; i < audioSources.Length; i++)
         {
             AudioSourceVolumes[i] = Mathf.Lerp(AudioSourceVolumes[i],
-                AudioSourceVolumesToggles[i] ? 1 : 0
+                AudioSourceVolumesToggles[i] ? MaxMusicVolume : 0
                 ,LerpSpeed);
         }
     }

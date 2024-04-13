@@ -966,9 +966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c56c7043368d894da244944e0f56ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSourceVolumesToggles: 000000
+  MaxMusicVolume: 1
+  AudioSourceVolumesToggles: 010000
   AudioSourceVolumes:
-  - 0
+  - 1
   - 0
   - 0
   LerpSpeed: 0.034
