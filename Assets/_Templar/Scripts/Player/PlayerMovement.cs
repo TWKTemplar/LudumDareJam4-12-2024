@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovementDir = CalculateMovementDirection();
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetButtonDown("Jump"))
         {
             MovementDir *= 2;
         }
