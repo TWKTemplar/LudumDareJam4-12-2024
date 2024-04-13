@@ -1077,7 +1077,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4331, y: 1.4331, z: 1.4331}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1234,8 +1234,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91abd07233d7dba49893e4998fb88570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.4
-  MovementDir: {x: 0, y: 0, z: 0}
+  ChangeDirectionSpeed: 0.2
+  BaseSpeed: 0.4
+  DashSpeed: 0.8
+  DashLengthInSeconds: 0.5
+  DashCoolDownAfterEndOfDash: 0.5
+  Dashing: 0
+  CantStartDash: 0
+  WishDir: {x: 0, y: 0, z: 0}
+  TargetVelocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 1435580420}
   col: {fileID: 1435580421}
 --- !u!114 &1435580426

@@ -8,9 +8,9 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerMovement playerMovement;
     private void Update()
     {
-        if(Mathf.Abs(playerMovement.MovementDir.x) > 0.1f)
+        if(Mathf.Abs(playerMovement.WishDir.x) > 0.1f)
         {
-            if (playerMovement.MovementDir.x > 0f)
+            if (playerMovement.WishDir.x > 0f)
             {
                 myAnim.SetBool("LookingLeft", false);
             }
