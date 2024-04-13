@@ -7,15 +7,22 @@ public class CameraFollowPlayer : MonoBehaviour
     public Transform player; // Player's transform
     public Vector3 offsetFromPlayer; // Offset from the player
     public Vector3 TargetPosition;
+    public Transform AcutalCamera;
     [Range(0,10)]public float CameraSpeed = 0.5f;
 
-    void Update()
+    void FixedUpdate()
     {
         CalculateDesiredPosition();
         float dist = Vector3.Distance(transform.position, TargetPosition);
         dist = Mathf.Clamp(dist* dist, 0.5f, 99);
         transform.position += (TargetPosition - transform.position).normalized * (dist * CameraSpeed * Time.deltaTime);
         transform.LookAt(player.position, Vector3.up);
+        LerpCameraToSelf();
+    }
+    public void LerpCameraToSelf()
+    {
+        AcutalCamera.transform.position = Vector3.Lerp(AcutalCamera.transform.position, transform.position,0.1f);
+        AcutalCamera.transform.rotation = Quaternion.Lerp(AcutalCamera.transform.rotation, transform.rotation, 0.1f);
     }
     [ContextMenu("Apply Movement")]
     public void ApplyMovement()
