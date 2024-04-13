@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump")) StartDash();
         WishDir = CalculateMovementDirection();
+    }
+    private void FixedUpdate()
+    {
         ApplyMovement(WishDir);
     }
     public void StartDash()
@@ -43,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyMovement(Vector3 moveDir)
     {
         TargetVelocity = WishDir * (Dashing ? DashSpeed : BaseSpeed) * 10;
-        rb.velocity = Vector3.Lerp(rb.velocity, TargetVelocity, ChangeDirectionSpeed) * ((WishDir.magnitude<0.1) ? 0.5f : 1);
+        if(WishDir.magnitude > 0.3f)
+            rb.velocity = Vector3.Lerp(rb.velocity, TargetVelocity, ChangeDirectionSpeed); 
     }
     private void OnValidate()
     {
