@@ -46,7 +46,7 @@ public class AnimatedBlood : MonoBehaviour
     }
     public void SpawnBlood()
     {
-        var NewBlood = Instantiate(BloodPrefabOrb, transform.position, Quaternion.identity);
+        var NewBlood = Instantiate(BloodPrefabOrb, transform.position-(Vector3.up*10), Quaternion.identity);
         SummonedBloodDots.Add(NewBlood);
         SummonedBloodDotsPercent.Add(0);
     }
