@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 368857150}
   - component: {fileID: 368857155}
   - component: {fileID: 368857156}
+  - component: {fileID: 368857157}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -619,9 +620,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d45369af0a64d64ab065a0800f0ca05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myNavAgent: {fileID: 368857155}
+--- !u!114 &368857157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368857149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315d9d5cde8dbd94480f0d8946a35469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   CurrentState: 2
   SightRange: 7
   player: {fileID: 1435580426}
+  enemyMovement: {fileID: 368857156}
 --- !u!1 &388471238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,7 +2895,7 @@ MonoBehaviour:
   SpawnPoints: []
   BaseEnemyPrefab: {fileID: 0}
   AllEnemiesInMap:
-  - {fileID: 368857156}
+  - {fileID: 368857157}
   EnemyPrefab: {fileID: 0}
 --- !u!4 &543450652042125295
 Transform:
@@ -3091,7 +3106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3564294943949210487, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.267346
+      value: -3.82
       objectReference: {fileID: 0}
     - target: {fileID: 3564294943949210487, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3099,7 +3114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3564294943949210487, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.9393215
+      value: 3.322
       objectReference: {fileID: 0}
     - target: {fileID: 3564294943949210487, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3136,8 +3151,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9127126986407457870, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6540326468636244311}
   m_SourcePrefab: {fileID: 100100000, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
+--- !u!1 &6540326468636244310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9127126986407457870, guid: bedd7d4c54af2a6438ea907493c638f2, type: 3}
+  m_PrefabInstance: {fileID: 6540326468636244309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6540326468636244311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6540326468636244310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dddcd9151987c0149bd41bf00f910d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIsWithinRange: 0
+  OnPlayerTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  DestoryMeOnInteract: {fileID: 0}
+  SpawnMeOnInteract: {fileID: 0}
+  AudioSourcePrefabToSpawnInOnInteract: {fileID: 0}
 --- !u!1 &7792195894185310518
 GameObject:
   m_ObjectHideFlags: 0

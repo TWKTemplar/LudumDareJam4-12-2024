@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public Transform[] PlayerBloodCursors;
     public EnemySpawner enemySpawner;
     [Header("Dynamic ref")]
-    public EnemyMovement ClosestEnemy;
+    public Enemy ClosestEnemy;
     private void Start()
     {
         if (enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
@@ -50,12 +50,12 @@ public class PlayerAttack : MonoBehaviour
         if (PrevOrbSpawn >= animatedBloods.Length) PrevOrbSpawn = 0;
         animatedBloods[PrevOrbSpawn].SpawnBlood();
     }
-    public EnemyMovement GetClosestEnemy()
+    public Enemy GetClosestEnemy()
     {
         float closestDistance = float.MaxValue;
-        EnemyMovement closestEnemy = null;
+        Enemy closestEnemy = null;
 
-        foreach (EnemyMovement enemy in enemySpawner.AllEnemiesInMap)
+        foreach (Enemy enemy in enemySpawner.AllEnemiesInMap)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if (distance <= SightRange && distance < closestDistance)

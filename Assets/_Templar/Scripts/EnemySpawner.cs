@@ -6,13 +6,13 @@ public class EnemySpawner : MonoBehaviour
 {
     public Player player;
     public Transform[] SpawnPoints;
-    public EnemyMovement BaseEnemyPrefab;
-    public List<EnemyMovement> AllEnemiesInMap;
-    public EnemyMovement EnemyPrefab;
+    public Enemy BaseEnemyPrefab;
+    public List<Enemy> AllEnemiesInMap;
+    public Enemy EnemyPrefab;
     public void GetAllEnemies()
     {
         AllEnemiesInMap.Clear();
-        var arrayOfEnemies = FindObjectsOfType<EnemyMovement>();
+        var arrayOfEnemies = FindObjectsOfType<Enemy>();
         for (int i = 0; i < arrayOfEnemies.Length; i++)
         {
             AllEnemiesInMap.Add(arrayOfEnemies[i]);
