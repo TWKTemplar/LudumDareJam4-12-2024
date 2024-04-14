@@ -2,17 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PropKick : MonoBehaviour
+public class PropKick : TriggerDetector
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemySpawner enemySpawner;
+    private void OnValidate()
     {
-        
+        if (enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            PlayerIsWithinRange = true;
+            OnPlayerTriggerEnter.Invoke();
+        }
+        if (other.CompareTag("Player"))
+        {
+            PlayerIsWithinRange = true;
+        }
+    }
+    private void Update()
+    {
+        if (PlayerIsWithinRange && Input.GetButtonDown("Jump"))
+        {
+            OnPlayerInteract.Invoke();
+            Debug.Log("player kicked Me!");
+            if (AudioSourcePrefabToSpawnInOnInteract != null) Instantiate(AudioSourcePrefabToSpawnInOnInteract, transform.position, Quaternion.identity);
+            if (SpawnMeOnInteract != null) Instantiate(SpawnMeOnInteract, transform.position, Quaternion.identity);
+            if (DestoryMeOnInteract != null) Destroy(DestoryMeOnInteract);
+        }
+    }
+    public void KickAwayFromPlayer()
+    {
+
+    }
+    public void KickAwayFromEnemy()
+    {
+
     }
 }
