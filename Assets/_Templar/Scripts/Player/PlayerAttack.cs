@@ -50,6 +50,13 @@ public class PlayerAttack : MonoBehaviour
         if (PrevOrbSpawn >= animatedBloods.Length) PrevOrbSpawn = 0;
         animatedBloods[PrevOrbSpawn].SpawnBlood();
     }
+    public void ClearAllOrbs()
+    {
+        foreach (var item in animatedBloods)
+        {
+            item.ClearBlood();
+        }
+    }
     
     private void OnDrawGizmos()
     {

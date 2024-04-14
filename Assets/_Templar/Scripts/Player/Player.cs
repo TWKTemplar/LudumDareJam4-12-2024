@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public PlayerAttack playerAttack;
     public int Health = 1;
     public int MaxHealth = 10;
     public GameManager gameManager;
-    public GameObject playerCorpsePrefab;
+    public Rigidbody playerCorpsePrefab;
     private void OnValidate()
     {
         if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
@@ -34,8 +35,12 @@ public class Player : MonoBehaviour
     }
     public void Die()
     {
+        FindObjectOfType<EnemySpawner>().AggroAllEnemies();
+        playerAttack.ClearAllOrbs();
+        var corpse =Instantiate(playerCorpsePrefab, transform.position, Quaternion.identity);
+        corpse.velocity = playerMovement.rb.velocity + Vector3.up*5;
+        transform.parent = corpse.transform;
         gameObject.SetActive(false);
-        Instantiate(playerCorpsePrefab, transform.position, Quaternion.identity);
     }
     public void DelayedHeal(float Delay = 1)
     {

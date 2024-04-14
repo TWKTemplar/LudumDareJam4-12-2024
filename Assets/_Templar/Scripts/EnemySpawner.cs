@@ -12,6 +12,13 @@ public class EnemySpawner : MonoBehaviour
     public Enemy BaseEnemyPrefab;
     public List<Enemy> AllEnemiesInMap;
     public Enemy EnemyPrefab;
+    public void AggroAllEnemies()
+    {
+        foreach (var enim in AllEnemiesInMap)
+        {
+            enim.ForceEnemyStateToRun();
+        }
+    }
     public void GetAllEnemies()
     {
         AllEnemiesInMap.Clear();

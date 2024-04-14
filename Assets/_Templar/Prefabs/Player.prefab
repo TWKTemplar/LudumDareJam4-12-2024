@@ -1298,6 +1298,7 @@ MonoBehaviour:
   AllSummonsInMap:
   - {fileID: 0}
   SummonPrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &6895113197955181934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,8 +1689,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 2539966293739068054}
+  playerAttack: {fileID: 3067362355915275717}
   Health: 1
-  MaxHealth: 10
+  MaxHealth: 30
+  gameManager: {fileID: 0}
+  playerCorpsePrefab: {fileID: 5028972569930208734, guid: 1914b3a356f316c4d92ad6d7e23b2be1, type: 3}
 --- !u!114 &2539966293739068054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,7 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91abd07233d7dba49893e4998fb88570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeDirectionSpeed: 0.2
+  ChangeDirectionSpeed: 25
   BaseSpeed: 0.4
   DashSpeed: 0.8
   DashLengthInSeconds: 0.5
@@ -1761,7 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SightRange: 3
-  PlayerAttackCoolDown: 0.2
+  PlayerAttackCoolDown: 0.4
   PlayerHealDelay: 1
   TempPlayerAttackCoolDown: 0
   player: {fileID: 6664337936657909589}

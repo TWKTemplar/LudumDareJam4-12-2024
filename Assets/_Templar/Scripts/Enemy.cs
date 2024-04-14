@@ -96,6 +96,11 @@ public class Enemy : MonoBehaviour
         enemyMovement.UpdateMovement();
         Invoke("SetEnemyStateToWalk", RunDurationInSeconds);
     }
+    public void ForceEnemyStateToRun()
+    {
+        CurrentState = EnemyState.Run;
+        enemyMovement.UpdateMovement();
+    }
     public void SetEnemyStateToRunAway()
     {
         CurrentState = EnemyState.RunAway;

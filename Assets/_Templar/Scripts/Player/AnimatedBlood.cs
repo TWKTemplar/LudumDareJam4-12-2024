@@ -50,6 +50,15 @@ public class AnimatedBlood : MonoBehaviour
         SummonedBloodDots.Add(NewBlood);
         SummonedBloodDotsPercent.Add(0);
     }
+    public void ClearBlood()
+    {
+        foreach (var item in SummonedBloodDots)
+        {
+            Destroy(item.gameObject);
+        }
+        SummonedBloodDots.Clear();
+        SummonedBloodDotsPercent.Clear();
+    }
     #region API
     public void UpdateAnimatedPointsPosition(float percent = 0, Transform animObject=null)
     {
