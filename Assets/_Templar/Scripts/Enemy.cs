@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class Enemy : MonoBehaviour
 {
-    public enum EnemyState { Walk, Run, Idle };
+    public enum EnemyState { Walk, Run, Idle, RunAway };
     [Header("Settings")]
+    public float PushForce = 5;
     public EnemyState CurrentState = EnemyState.Idle;
     [Range(2, 20)] public float SightRange = 7;
     [Range(1, 20)] public float RunDurationInSeconds = 7;
@@ -59,12 +61,29 @@ public class Enemy : MonoBehaviour
     public void SetEnemyStateToWalk()
     {
         CurrentState = EnemyState.Walk;
+        enemyMovement.UpdateMovement();
         Invoke("SetEnemyStateToRun", WalkDurationInSeconds);
     }
     public void SetEnemyStateToRun()
     {
         CurrentState = EnemyState.Run;
+        enemyMovement.UpdateMovement();
         Invoke("SetEnemyStateToWalk", RunDurationInSeconds);
+    }
+    public void SetEnemyStateToRunAway()
+    {
+        CurrentState = EnemyState.RunAway;
+        enemyMovement.UpdateMovement();
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collided With Player");
+            SetEnemyStateToRunAway();
+            player.PushAway(transform.position, PushForce);
+            player.Damage();
+        }
     }
     public bool IsPlayerWithinSight()
     {

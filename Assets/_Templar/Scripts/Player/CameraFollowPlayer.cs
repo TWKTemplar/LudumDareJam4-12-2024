@@ -9,7 +9,6 @@ public class CameraFollowPlayer : MonoBehaviour
     public Vector3 TargetPosition;
     public Transform AcutalCamera;
     [Range(0,10)]public float CameraSpeed = 0.5f;
-
     void FixedUpdate()
     {
         CalculateDesiredPosition();
@@ -30,6 +29,10 @@ public class CameraFollowPlayer : MonoBehaviour
         transform.position = TargetPosition;
         transform.LookAt(player.position, Vector3.up);
     }
+    private void Start()
+    {
+        if(player == null) player = FindObjectOfType<Player>().transform;
+    }
     private void OnValidate()
     {
         ApplyMovement();
@@ -42,12 +45,12 @@ public class CameraFollowPlayer : MonoBehaviour
     private void OnDrawGizmos()
     {
         CalculateDesiredPosition();
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere((player.position + offsetFromPlayer), 0.1f);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(TargetPosition, 0.1f);
-        Gizmos.DrawSphere(TargetPosition, 0.1f);
-        Gizmos.DrawLine(transform.position, TargetPosition);
+       // Gizmos.color = Color.cyan;
+       // Gizmos.DrawSphere((player.position + offsetFromPlayer), 0.1f);
+       // Gizmos.color = Color.blue;
+       // Gizmos.DrawSphere(TargetPosition, 0.1f);
+       // Gizmos.DrawSphere(TargetPosition, 0.1f);
+       // Gizmos.DrawLine(transform.position, TargetPosition);
     }
 }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public bool SpawnEnemiesOnTimer = false;
+    public float SpawnEnemyTime = 10;
+    [SerializeField] private float TempSpawnEnemyTime = 10;
     public Player player;
     public Transform[] SpawnPoints;
     public Enemy BaseEnemyPrefab;
@@ -16,6 +19,18 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < arrayOfEnemies.Length; i++)
         {
             AllEnemiesInMap.Add(arrayOfEnemies[i]);
+        }
+    }
+    private void Update()
+    {
+        if(SpawnEnemiesOnTimer)
+        {
+            TempSpawnEnemyTime -= Time.deltaTime;
+            if(TempSpawnEnemyTime <= 0)
+            {
+                SpawnEnemy();
+                TempSpawnEnemyTime = SpawnEnemyTime;
+            }
         }
     }
     private void OnValidate()
