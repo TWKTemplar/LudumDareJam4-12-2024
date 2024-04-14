@@ -175,7 +175,7 @@ MonoBehaviour:
   HP: 10
   PushForce: 25
   CurrentState: 0
-  SightRange: 4
+  SightRange: 3
   player: {fileID: 0}
   closestEnemy: {fileID: 0}
   enemySpawner: {fileID: 0}

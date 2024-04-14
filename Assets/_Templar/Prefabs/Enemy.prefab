@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6846199067086762564}
   - component: {fileID: 62773001423810629}
   - component: {fileID: 1747109976254134549}
+  - component: {fileID: 6963065707027097645}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315d9d5cde8dbd94480f0d8946a35469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 10
   PushForce: 20
   CurrentState: 2
   SightRange: 7
@@ -195,3 +197,18 @@ MonoBehaviour:
   WalkDurationInSeconds: 7
   player: {fileID: 0}
   enemyMovement: {fileID: 62773001423810629}
+  enemySpawner: {fileID: 0}
+  rb: {fileID: 633586376761624158}
+--- !u!114 &6963065707027097645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444823826418564926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ca549865c82f3448af3ea0aad2c9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1747109976254134549}
