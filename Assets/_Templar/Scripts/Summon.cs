@@ -78,9 +78,14 @@ public class Summon : MonoBehaviour
     {
         if(CurrentState == summonState.ReturnToPlayer)
         {
-            if (IsPlayerWithinSight(SightRange))
+            if (IsPlayerWithinSight())
             {
                 SetSummonStateToIdle();
+            }
+            else if(!IsPlayerWithinSight(SightRange*2f))
+            {
+                Debug.Log("Too far.. Teleporting");
+                transform.position = Vector3.Lerp(player.transform.position,transform.position,0.5f);
             }
         }
         else if (CurrentState == summonState.AttackNearEnemy)
@@ -110,16 +115,19 @@ public class Summon : MonoBehaviour
     }
     public void SetSummonStateToReturnToPlayer()
     {
+        Debug.Log("Return to player");
         CurrentState = summonState.ReturnToPlayer;
         summonMovement.UpdateMovement();
     }
     public void SetSummonStateToIdle()
     {
+        Debug.Log("Idle");
         CurrentState = summonState.Idle;
         summonMovement.UpdateMovement();
     }
     public void SetSummonStateToAttack()
     {
+        Debug.Log("attacking");
         CurrentState = summonState.AttackNearEnemy;
         summonMovement.UpdateMovement();
     }

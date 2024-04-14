@@ -7,8 +7,23 @@ public class CameraFollowPlayer : MonoBehaviour
     public Transform player; // Player's transform
     public Vector3 offsetFromPlayer; // Offset from the player
     public Vector3 TargetPosition;
-    public Transform AcutalCamera;
     [Range(0,10)]public float CameraSpeed = 0.5f;
+    public Camera AcutalCamera;
+    public bool DoDeathAnim = false;
+    private float StartFOV = 45;
+    public float DeathFOV = 20;
+    private void Update()
+    {
+        if (DoDeathAnim)
+        {
+            AcutalCamera.fieldOfView = Mathf.Lerp(AcutalCamera.fieldOfView, DeathFOV, 0.002f);
+        }
+        else
+        {
+            AcutalCamera.fieldOfView = AcutalCamera.fieldOfView;
+
+        }
+    }
     void FixedUpdate()
     {
         CalculateDesiredPosition();
@@ -32,10 +47,12 @@ public class CameraFollowPlayer : MonoBehaviour
     private void Start()
     {
         if(player == null) player = FindObjectOfType<Player>().transform;
+        StartFOV = AcutalCamera.fieldOfView;
     }
     private void OnValidate()
     {
         ApplyMovement();
+        StartFOV = AcutalCamera.fieldOfView;
     }
     public void CalculateDesiredPosition()
     {

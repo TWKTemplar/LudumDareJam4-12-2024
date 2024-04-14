@@ -80,8 +80,9 @@ MonoBehaviour:
   player: {fileID: 0}
   offsetFromPlayer: {x: 0, y: 1.94, z: -5.27}
   TargetPosition: {x: -2.58, y: 2.9380002, z: -5.06}
-  AcutalCamera: {fileID: 4506069405605196638}
   CameraSpeed: 2
+  AcutalCamera: {fileID: 4506069405605196639}
+  DeathFOV: 20
 --- !u!1 &7384578124480038061
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,5 +203,10 @@ PrefabInstance:
 --- !u!4 &4506069405605196638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1038974032053917615, guid: 49156775bbe7ef848b2bbe2ead14de96, type: 3}
+  m_PrefabInstance: {fileID: 3522917858641683697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &4506069405605196639 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1038974032053917614, guid: 49156775bbe7ef848b2bbe2ead14de96, type: 3}
   m_PrefabInstance: {fileID: 3522917858641683697}
   m_PrefabAsset: {fileID: 0}

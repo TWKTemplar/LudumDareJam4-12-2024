@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         FindObjectOfType<EnemySpawner>().AggroAllEnemies();
+        FindObjectOfType<CameraFollowPlayer>().DoDeathAnim = true;
         playerAttack.ClearAllOrbs();
         var corpse =Instantiate(playerCorpsePrefab, transform.position, Quaternion.identity);
         corpse.velocity = playerMovement.rb.velocity + Vector3.up*5;

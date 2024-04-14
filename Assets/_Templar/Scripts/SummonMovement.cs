@@ -12,18 +12,17 @@ public class SummonMovement : MonoBehaviour
     }
     public void UpdateMovement()
     {
-        if (summon.CurrentState == Summon.summonState.Idle)
-        {
-            myNavAgent.SetDestination(transform.position);//stop basicly
-        }
+        
     }
 
     private void Update()
     {
-        
-        if (summon.CurrentState == Summon.summonState.ReturnToPlayer)
+        if (summon.CurrentState == Summon.summonState.Idle)
         {
-            myNavAgent.SetDestination(summon.player.transform.position);
+        }
+        else if (summon.CurrentState == Summon.summonState.ReturnToPlayer)
+        {
+            myNavAgent.SetDestination(Vector3.Lerp(summon.player.transform.position,transform.position,0.5f));
         }
         else if (summon.CurrentState == Summon.summonState.AttackNearEnemy)
         {
