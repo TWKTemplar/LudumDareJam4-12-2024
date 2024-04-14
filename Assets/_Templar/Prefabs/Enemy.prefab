@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
+  EnemyDamage: 15
   PushForce: 20
   CurrentState: 2
   SightRange: 7
@@ -212,3 +213,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1747109976254134549}
+  lastTouchRb: {fileID: 0}

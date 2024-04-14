@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public enum EnemyState { Walk, Run, Idle, RunAway };
     [Header("Settings")]
     public int HP = 50;
+    public int EnemyDamage = 10;
     public float PushForce = 25;
     public EnemyState CurrentState = EnemyState.Idle;
     [Range(2, 20)] public float SightRange = 10;
@@ -107,7 +108,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Collided With Player");
             SetEnemyStateToRunAway();
             player.PushAway(transform.position, PushForce);
-            player.Damage();
+            player.Damage(EnemyDamage);
         }
     }
     public bool IsPlayerWithinSight()

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int Health = 1;
     public int MaxHealth = 10;
     public GameManager gameManager;
+    public GameObject playerCorpsePrefab;
     private void OnValidate()
     {
         if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
@@ -33,7 +34,8 @@ public class Player : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Instantiate(playerCorpsePrefab, transform.position, Quaternion.identity);
     }
     public void DelayedHeal(float Delay = 1)
     {
