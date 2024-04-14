@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public PlayerMovement playerMovement;
     public int Health = 1;
     public int MaxHealth = 10;
+    public GameManager gameManager;
     private void OnValidate()
     {
         if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
@@ -14,10 +15,15 @@ public class Player : MonoBehaviour
     public void Damage(int dmg = 1)
     {
         Health -= dmg;
-        if(Health <= 0)
-        {
-            Die();
-        }
+        OnHPChange();
+        if (Health <= 0) Die();
+    }
+    public void OnHPChange()
+    {
+        if (gameManager == null) gameManager = FindObjectOfType<GameManager>();
+        if (Health > 1) gameManager.PlayerHasMoreThan1HP = true;
+        else gameManager.PlayerHasMoreThan1HP = false;
+        gameManager.UpdateMusic();
     }
     public void PushAway(Vector3 EnemyPos, float PushForce)
     {
@@ -40,5 +46,6 @@ public class Player : MonoBehaviour
     public void Heal(int heal = 1)
     {
         Health = Mathf.Clamp( Health + heal,0, MaxHealth);
+        OnHPChange();
     }
 }

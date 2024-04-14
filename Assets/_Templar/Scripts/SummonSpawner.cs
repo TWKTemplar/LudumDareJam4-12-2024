@@ -8,6 +8,7 @@ public class SummonSpawner : MonoBehaviour
     public Transform[] SpawnPoints;
     public List<Summon> AllSummonsInMap;
     public Summon SummonPrefab;
+    public GameManager gameManager;
     public void GetAllSummons()
     {
         AllSummonsInMap.Clear();
@@ -20,12 +21,13 @@ public class SummonSpawner : MonoBehaviour
     private void OnValidate()
     {
         GetPlayerIfNull();
-        GetAllSummons();
+        GetAllSummons();    
     }
     private void Start()
     {
         GetPlayerIfNull();
         GetAllSummons();
+        OnSummonsChange();
     }
     public void GetPlayerIfNull()
     {
@@ -46,9 +48,17 @@ public class SummonSpawner : MonoBehaviour
         var spawnPoint = GetRandomSpawnPoint();
         var summon = Instantiate(SummonPrefab, spawnPoint, Quaternion.identity);
         AllSummonsInMap.Add(summon);
+        OnSummonsChange();
+    }
+    public void OnSummonsChange()
+    {
+        if (gameManager == null) gameManager = FindObjectOfType<GameManager>();
+        gameManager.PlayerHasSummons = (AllSummonsInMap.Count > 0);
+        gameManager.UpdateMusic();
     }
     public void RemoveSummon(Summon summon)
     {
+        OnSummonsChange();
         AllSummonsInMap.Remove(summon);
         Destroy(summon);
     }
