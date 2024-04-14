@@ -27,7 +27,7 @@ public class CameraFollowPlayer : MonoBehaviour
     public void ApplyMovement()
     {
         transform.position = TargetPosition;
-        transform.LookAt(player.position, Vector3.up);
+        if(player != null) transform.LookAt(player.position, Vector3.up);
     }
     private void Start()
     {

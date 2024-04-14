@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36db2c1287cd37343832749039dcbd99, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -175,13 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c56c7043368d894da244944e0f56ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMusicVolume: 1
+  MaxMusicVolume: 0.5
   AudioSourceVolumesToggles: 010000
   AudioSourceVolumes:
-  - 1
   - 0
   - 0
-  LerpSpeed: 0.034
+  - 0
+  LerpSpeed: 0.01
   audioSources:
   - {fileID: 925165611213529248}
   - {fileID: 7114377455907775727}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 1232182996310720632}
   - component: {fileID: 5508120851110347401}
   m_Layer: 0
-  m_Name: LotsOfFriends
+  m_Name: LowHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 940490b9835f83444aacf41f01d4a77c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 353153642624600129}
   - component: {fileID: 7114377455907775727}
   m_Layer: 0
-  m_Name: LowHP
+  m_Name: Summons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,7 +356,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: aff363e207476fb46b1ca1c653d4bd8b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1

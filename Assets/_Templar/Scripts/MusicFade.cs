@@ -29,7 +29,7 @@ public class MusicFade : MonoBehaviour
             AudioSourceVolumesToggles = new bool[audioSources.Length];
         for (int i = 0; i < audioSources.Length; i++)
         {
-           AudioSourceVolumes[i] = AudioSourceVolumesToggles[i] ? MaxMusicVolume : 0;
+           //AudioSourceVolumes[i] = AudioSourceVolumesToggles[i] ? MaxMusicVolume : 0;
         }
     }
     public void UpdateLerps()
