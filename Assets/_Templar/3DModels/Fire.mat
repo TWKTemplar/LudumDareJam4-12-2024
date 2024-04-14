@@ -25,11 +25,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _ColorNoise: 0.073
+    - _ColorNoise: 0.011
     - _EmmisionBrightness: 160.27
-    - _EmmisionBrightnessColorNoise: 338.6
-    - _EmmisionBrightnessMain: 28
-    - _VectorOffsetStrength: 1.1
+    - _EmmisionBrightnessColorNoise: 179.93
+    - _EmmisionBrightnessMain: 8.14
+    - _VectorOffsetStrength: 1.97
     - __dirty: 0
     m_Colors:
     - _FireAlbedo: {r: 0, g: 0, b: 0, a: 1}
