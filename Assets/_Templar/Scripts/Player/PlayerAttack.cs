@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Settings")]
     [Range(2, 20)] public float SightRange = 7;
     public float PlayerAttackCoolDown = 1;
+    public float PlayerHealDelay = 1;
     [SerializeField]private float TempPlayerAttackCoolDown;
     [Header("ref")]
     public Player player;
@@ -35,17 +36,19 @@ public class PlayerAttack : MonoBehaviour
         {
             TempPlayerAttackCoolDown = PlayerAttackCoolDown;
             SpawnOrb();
-            player.DelayedHeal();
+            player.DelayedHeal(PlayerHealDelay);
         }
     }
     private void MoveCursors()
     {
         foreach (var item in PlayerBloodCursors) item.transform.position = ClosestEnemy.transform.position;
     }
+    private int PrevOrbSpawn;
     public void SpawnOrb()
     {
-        int rand =Random.Range(0,animatedBloods.Length-1);
-        animatedBloods[rand].SpawnBlood();
+        PrevOrbSpawn++;
+        if (PrevOrbSpawn >= animatedBloods.Length) PrevOrbSpawn = 0;
+        animatedBloods[PrevOrbSpawn].SpawnBlood();
     }
     public EnemyMovement GetClosestEnemy()
     {
