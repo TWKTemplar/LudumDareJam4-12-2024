@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (player == null) player = FindObjectOfType<Player>();
+        if (enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
     }
     private void Start()
     {
