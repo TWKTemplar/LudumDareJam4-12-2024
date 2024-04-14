@@ -18,6 +18,14 @@ public class Player : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public void DelayedHeal(float Delay = 1)
+    {
+        Invoke("HealBy1", Delay);
+    }
+    public void HealBy1()
+    {
+        Heal();
+    }
     public void Heal(int heal = 1)
     {
         Health = Mathf.Clamp( Health + heal,0, MaxHealth);

@@ -7,13 +7,26 @@ public class EnemySpawner : MonoBehaviour
     public Player player;
     public Transform[] SpawnPoints;
     public EnemyMovement BaseEnemyPrefab;
+    public List<EnemyMovement> AllEnemiesInMap;
+    public EnemyMovement EnemyPrefab;
+    public void GetAllEnemies()
+    {
+        AllEnemiesInMap.Clear();
+        var arrayOfEnemies = FindObjectsOfType<EnemyMovement>();
+        for (int i = 0; i < arrayOfEnemies.Length; i++)
+        {
+            AllEnemiesInMap.Add(arrayOfEnemies[i]);
+        }
+    }
     private void OnValidate()
     {
         GetPlayerIfNull();
+        GetAllEnemies();
     }
     private void Start()
     {
         GetPlayerIfNull();
+        GetAllEnemies();
     }
     public void GetPlayerIfNull()
     {
@@ -22,6 +35,17 @@ public class EnemySpawner : MonoBehaviour
     public void GetSpawnPoints()
     {
         SpawnPoints = GetComponentsInChildren<Transform>();
+    }
+    public void SpawnEnemy()
+    {
+        if(EnemyPrefab == null)
+        {
+            Debug.LogError("No Enemy Prefab to spawn");
+            return;
+        }
+        var spawnPoint = GetRandomSpawnPoint();
+        var enemy = Instantiate(EnemyPrefab, spawnPoint,Quaternion.identity);
+        AllEnemiesInMap.Add(enemy);
     }
     public Vector3 GetRandomSpawnPoint()
     {
