@@ -7,25 +7,49 @@ public class Enemy : MonoBehaviour
 {
     public enum EnemyState { Walk, Run, Idle, RunAway };
     [Header("Settings")]
-    public float PushForce = 5;
+    public int HP = 50;
+    public float PushForce = 25;
     public EnemyState CurrentState = EnemyState.Idle;
-    [Range(2, 20)] public float SightRange = 7;
+    [Range(2, 20)] public float SightRange = 10;
     [Range(1, 20)] public float RunDurationInSeconds = 7;
     [Range(1, 20)] public float WalkDurationInSeconds = 7;
     [Header("ref")]
     public Player player;
     public EnemyMovement enemyMovement;
+    public EnemySpawner enemySpawner;
+    public Rigidbody rb;
+
+    public void PushAway(Vector3 EnemyPos, float PushForce)
+    {
+        var forceDir = (transform.position - EnemyPos).normalized * PushForce;
+        forceDir.y = 5;
+        rb.AddForce(forceDir, ForceMode.Impulse);
+    }
+    public void Damage(int damage = 1)
+    {
+        HP -= damage;
+        SetEnemyStateToRunAway();
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        if(enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
+        enemySpawner.RemoveEnemy(this);
+    }
+
     private void OnValidate()
     {
-        GetPlayerIfNull();
-    }
-    public void GetPlayerIfNull()
-    {
+        if (rb == null) rb = GetComponent<Rigidbody>();
         if (player == null) player = FindObjectOfType<Player>();
     }
     private void Start()
     {
-        GetPlayerIfNull();
+        if (rb == null) rb = GetComponent<Rigidbody>();
+        if (player == null) player = FindObjectOfType<Player>();
+        if (enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
     }
     private void OnDrawGizmos()
     {

@@ -62,6 +62,28 @@ public class EnemySpawner : MonoBehaviour
         var enemy = Instantiate(EnemyPrefab, spawnPoint,Quaternion.identity);
         AllEnemiesInMap.Add(enemy);
     }
+    public void RemoveEnemy(Enemy enemy)
+    {
+        AllEnemiesInMap.Remove(enemy);
+        Destroy(enemy);
+    }
+    public Enemy GetClosestEnemy(Vector3 position,float sightRange = 7)
+    {
+        float closestDistance = float.MaxValue;
+        Enemy closestEnemy = null;
+
+        foreach (Enemy enemy in AllEnemiesInMap)
+        {
+            float distance = Vector3.Distance(position, enemy.transform.position);
+            if (distance <= sightRange && distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
+    }
     public Vector3 GetRandomSpawnPoint()
     {
         Vector3 SpawnPoint;

@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        ClosestEnemy = GetClosestEnemy();
+        ClosestEnemy = enemySpawner.GetClosestEnemy(transform.position,SightRange);
         if(ClosestEnemy != null)
         {
             MoveCursors();
@@ -50,23 +50,7 @@ public class PlayerAttack : MonoBehaviour
         if (PrevOrbSpawn >= animatedBloods.Length) PrevOrbSpawn = 0;
         animatedBloods[PrevOrbSpawn].SpawnBlood();
     }
-    public Enemy GetClosestEnemy()
-    {
-        float closestDistance = float.MaxValue;
-        Enemy closestEnemy = null;
-
-        foreach (Enemy enemy in enemySpawner.AllEnemiesInMap)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance <= SightRange && distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy;
-    }
+    
     private void OnDrawGizmos()
     {
         if (ClosestEnemy != null)
