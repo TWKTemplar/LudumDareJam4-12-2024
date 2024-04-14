@@ -39,6 +39,7 @@ public class CameraFollowPlayer : MonoBehaviour
     }
     public void CalculateDesiredPosition()
     {
+        if (player == null) player = FindObjectOfType<Player>().transform;
         Vector3 desiredPosition = player.position + offsetFromPlayer;
         TargetPosition = new Vector3(desiredPosition.x, desiredPosition.y, desiredPosition.z);
     }

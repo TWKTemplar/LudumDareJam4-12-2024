@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [Range(0, 0.5f)] public float ChangeDirectionSpeed= 0.2f;
+     public float ChangeDirectionSpeed= 0.2f;
     [Range(0, 5)] public float BaseSpeed = 0.4f;
     [Range(0, 5)] public float DashSpeed = 0.8f;
     [Range(0, 1)] public float DashLengthInSeconds = 0.5f;
@@ -46,8 +44,13 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyMovement(Vector3 moveDir)
     {
         TargetVelocity = WishDir * (Dashing ? DashSpeed : BaseSpeed) * 10;
-        if(WishDir.magnitude > 0.3f)
-            rb.velocity = Vector3.Lerp(rb.velocity, TargetVelocity, ChangeDirectionSpeed); 
+        if (WishDir.magnitude > 0.3f)
+        {
+            Vector3 velocity = rb.velocity;
+            //Vector3 targetVelocity = Vector3.Lerp(rb.velocity, TargetVelocity, ChangeDirectionSpeed);
+            rb.AddForce(Vector3.right * Mathf.Clamp(-velocity.x + TargetVelocity.x, -1, 1) * ChangeDirectionSpeed);
+            rb.AddForce(Vector3.forward * Mathf.Clamp(-velocity.z + TargetVelocity.z,-1,1)* ChangeDirectionSpeed);
+        }
     }
     private void OnValidate()
     {
