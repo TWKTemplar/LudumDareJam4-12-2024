@@ -13,17 +13,17 @@ public class PropKick : TriggerDetector
     {
         if (other.CompareTag("Player"))
         {
-            PlayerIsWithinRange = true;
+            TargetTagIsWithinRange = true;
             OnPlayerTriggerEnter.Invoke();
         }
         if (other.CompareTag("Player"))
         {
-            PlayerIsWithinRange = true;
+            TargetTagIsWithinRange = true;
         }
     }
     private void Update()
     {
-        if (PlayerIsWithinRange && Input.GetButtonDown("Jump"))
+        if (TargetTagIsWithinRange && Input.GetButtonDown("Jump"))
         {
             OnPlayerInteract.Invoke();
             Debug.Log("player kicked Me!");

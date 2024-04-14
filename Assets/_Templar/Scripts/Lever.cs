@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
+    [Header("Settings")]
+    public bool DisableLevelAfterInteract = true;
+    [Header("Ref")]
     public MeshRenderer myRend;
     public TriggerDetector triggerDetector;
     public Material GlowLever;
@@ -18,13 +21,12 @@ public class Lever : MonoBehaviour
     }
     public void PlayerInteract()
     {
-      myRend.material = NoGlowLever;
-      gameObject.transform.Rotate(Vector3.forward, 180);
-      Invoke("DisableTrigger", 0.05f);
+         gameObject.transform.Rotate(Vector3.forward, 180);
+        if (DisableLevelAfterInteract)
+        {
+            myRend.material = NoGlowLever;
+            triggerDetector.DisableTriggerDetection();
+        }
     }
-    public void DisableTrigger()
-    {
-        triggerDetector.enabled = false;
-
-    }
+    
 }
