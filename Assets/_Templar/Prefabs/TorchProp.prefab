@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9132276232876757607}
   - component: {fileID: 5465481545528970289}
   - component: {fileID: 248755203758339113}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 235628137083582957}
   - component: {fileID: 1533875081585861758}
   - component: {fileID: 3217060304469763173}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DeleteMe
   m_TagString: Prop
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235699881660749831}
   - component: {fileID: 8676007982262858792}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2472528376012442742}
   - component: {fileID: 8092375308298395666}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TorchProp
   m_TagString: Prop
   m_Icon: {fileID: 0}

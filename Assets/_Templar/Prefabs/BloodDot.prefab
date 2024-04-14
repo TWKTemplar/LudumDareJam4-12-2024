@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8801925603061902801}
   - component: {fileID: 7726499455178369562}
   - component: {fileID: 1768546233101484168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BloodDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

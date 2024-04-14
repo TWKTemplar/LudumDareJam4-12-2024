@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6846199067086762564}
   - component: {fileID: 62773001423810629}
   - component: {fileID: 1747109976254134549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -187,5 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 2
   SightRange: 7
+  RunDurationInSeconds: 7
+  WalkDurationInSeconds: 7
   player: {fileID: 0}
   enemyMovement: {fileID: 62773001423810629}
