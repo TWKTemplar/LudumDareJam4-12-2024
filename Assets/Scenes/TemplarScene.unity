@@ -1912,6 +1912,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2517952803675044423, guid: 095bd369b39c8d7488ec0bd6d1221ad3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716163633775905794, guid: 095bd369b39c8d7488ec0bd6d1221ad3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3252224991405807402, guid: c3060d444606c754eb12de8fa6694ab9, type: 3}
     - target: {fileID: 3067362355915275717, guid: 095bd369b39c8d7488ec0bd6d1221ad3, type: 3}
       propertyPath: enemySpawner
       value: 
