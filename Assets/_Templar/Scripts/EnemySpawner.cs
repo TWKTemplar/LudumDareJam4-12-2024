@@ -16,7 +16,8 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enim in AllEnemiesInMap)
         {
-            enim.ForceEnemyStateToRun();
+            if(enim.CurrentState == Enemy.EnemyState.Idle) enim.SetEnemyStateToRun();
+            else enim.ForceEnemyStateToRun();
         }
     }
     public void GetAllEnemies()

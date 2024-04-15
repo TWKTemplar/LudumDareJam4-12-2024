@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class GameManager : MonoBehaviour
     public Player player;
     public bool PlayerHasSummons = false;
     public bool PlayerHasMoreThan1HP = false;
-
+    public UnityEvent OnGameStart;
+    public void StartGame()
+    {
+        OnGameStart.Invoke();
+    }
     public void UpdateMusic()
     {
         musicFade.AudioSourceVolumesToggles[1] = PlayerHasSummons;
