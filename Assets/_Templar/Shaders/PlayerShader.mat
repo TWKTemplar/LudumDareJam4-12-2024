@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlbedoToEmmision: 0
+    - _AlbedoToEmmision: 0.117
     - _EmmisionMutiply: 1056.26
     - _EmmisionPower: 4
     - _EmmisionStrength: 2.5

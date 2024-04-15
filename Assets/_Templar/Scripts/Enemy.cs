@@ -81,8 +81,7 @@ public class Enemy : MonoBehaviour
         {
             if (IsPlayerWithinSight())
             {
-                CurrentState = EnemyState.Run;
-                Invoke("SetEnemyStateToWalk", RunDurationInSeconds);
+                SetEnemyStateToRun();
             }
         }
     }

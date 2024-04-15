@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
+    [Header("Dev tools")]
+    public bool IsImortal = false;
+    [Header("settings")]
     public PlayerMovement playerMovement;
     public PlayerAttack playerAttack;
     public int Health = 1;
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     }
     public void Damage(int dmg = 1)
     {
+        if (IsImortal) Health = MaxHealth;
         Health -= dmg;
         OnHPChange();
         if (Health <= 0) Die();

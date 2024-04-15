@@ -39,7 +39,7 @@ Material:
     m_Floats:
     - _EmmisionMutiply: 33.76
     - _EmmisionPower: 79.48
-    - _Glow: 1
+    - _Glow: 0.525
     - __dirty: 0
     m_Colors: []
   m_BuildTextureStacks: []

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon1
-  m_Shader: {fileID: 4800000, guid: c2d2730ad78b2e54994e489df01f4c6f, type: 3}
+  m_Name: Enemy
+  m_Shader: {fileID: 4800000, guid: 60bfdf5095c09f949961bef9f7847b2a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -24,11 +24,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Player:
-        m_Texture: {fileID: 2800000, guid: 51c3a4694fcd0974f96f83da00e2f393, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5650e89b3c86255458731374b7055b4f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PlayerEmmision:
-        m_Texture: {fileID: 2800000, guid: 5b5e47183c0c6614eb1ac6c8cd4cf3ef, type: 3}
+        m_Texture: {fileID: 2800000, guid: ece8b9c0afc649a4b9446e8ca83d7349, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -37,11 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlbedoToEmmision: 0.319
-    - _EmmisionMutiply: 25.68
-    - _EmmisionPower: 4.4
+    - _AlbedoToEmmision: 0.115
+    - _EmmisionMutiply: 141.1
+    - _EmmisionPower: 54.3
     - _EmmisionStrength: 2.5
     - __dirty: 0
     m_Colors:
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _enemyGlowColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
