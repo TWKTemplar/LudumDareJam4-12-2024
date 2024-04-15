@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315d9d5cde8dbd94480f0d8946a35469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
-  EnemyDamage: 15
+  HP: 30
+  EnemyDamage: 10
   PushForce: 20
   CurrentState: 2
   SightRange: 7

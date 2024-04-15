@@ -10,9 +10,16 @@ public class Player : MonoBehaviour
     public int MaxHealth = 10;
     public GameManager gameManager;
     public Rigidbody playerCorpsePrefab;
+    public SummonSpawner summonSpawner;
     private void OnValidate()
     {
         if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
+        if (summonSpawner == null) summonSpawner = GetComponent<SummonSpawner>();
+    }
+    private void Start()
+    {
+        if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
+        if (summonSpawner == null) summonSpawner = GetComponent<SummonSpawner>();
     }
     public void Damage(int dmg = 1)
     {
@@ -26,6 +33,7 @@ public class Player : MonoBehaviour
         if (Health > 1) gameManager.PlayerHasMoreThan1HP = true;
         else gameManager.PlayerHasMoreThan1HP = false;
         gameManager.UpdateMusic();
+        PlayerAttemptToSpawnSummon();
     }
     public void PushAway(Vector3 EnemyPos, float PushForce)
     {
@@ -42,6 +50,15 @@ public class Player : MonoBehaviour
         corpse.velocity = playerMovement.rb.velocity + Vector3.up*5;
         transform.parent = corpse.transform;
         gameObject.SetActive(false);
+    }
+    public void PlayerAttemptToSpawnSummon()
+    {
+        if(MaxHealth == Health)
+        {
+            summonSpawner.SpawnSummon();
+            Health = 1;
+            OnHPChange();
+        }
     }
     public void DelayedHeal(float Delay = 1)
     {

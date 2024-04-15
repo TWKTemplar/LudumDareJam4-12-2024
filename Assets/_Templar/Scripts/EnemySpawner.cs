@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
     public void RemoveEnemy(Enemy enemy)
     {
         AllEnemiesInMap.Remove(enemy);
-        Destroy(enemy);
+        Destroy(enemy.gameObject);
     }
     public Enemy GetClosestEnemy(Vector3 position,float sightRange = 7)
     {

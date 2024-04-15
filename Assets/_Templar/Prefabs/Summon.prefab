@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fda08e83a92aa43bf2473a5fc60770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 30
   PushForce: 25
   CurrentState: 0
   SightRange: 3
@@ -293,4 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36664cbb79f3734da958ae5ea918f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetRot: {x: -90, y: 0, z: 0}
+  player: {fileID: 0}
+  LookingRight: 1
+  RightRot: {x: -90, y: 0, z: 0}
+  LeftRot: {x: -90, y: 180, z: 0}

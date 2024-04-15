@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
         {
             TempPlayerAttackCoolDown = PlayerAttackCoolDown;
             SpawnOrb();
+            ClosestEnemy.LifeStealDamage();
             player.DelayedHeal(PlayerHealDelay);
         }
     }

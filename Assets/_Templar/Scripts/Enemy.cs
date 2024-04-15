@@ -26,14 +26,16 @@ public class Enemy : MonoBehaviour
         forceDir.y = 5;
         rb.AddForce(forceDir, ForceMode.Impulse);
     }
-    public void Damage(int damage = 1)
+    public void SummonDamage(int dmg)
+    {
+        SetEnemyStateToRunAway();
+        HP -= dmg;
+        if (HP <= 0) Die();
+    }
+    public void LifeStealDamage(int damage = 1)
     {
         HP -= damage;
-        SetEnemyStateToRunAway();
-        if (HP <= 0)
-        {
-            Die();
-        }
+        if (HP <= 0) Die();
     }
     public void Die()
     {

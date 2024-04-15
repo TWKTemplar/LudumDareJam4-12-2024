@@ -138,7 +138,8 @@ public class Summon : MonoBehaviour
             Debug.Log("Summon Collided With Enemy");
             var enim = other.gameObject.GetComponent<Enemy>();
             enim.PushAway(transform.position, PushForce);
-            enim.Damage(10);
+            enim.SummonDamage(10);
+            Damage(8);
         }
     }
     public bool IsPlayerWithinSight(float range = 0)

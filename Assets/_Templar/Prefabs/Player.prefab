@@ -1105,7 +1105,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5394057129097166596}
-  m_Mesh: {fileID: 3252224991405807402, guid: b449f81c2c79b504daebd45178a32077, type: 3}
+  m_Mesh: {fileID: 3252224991405807402, guid: c3060d444606c754eb12de8fa6694ab9, type: 3}
 --- !u!23 &7171527426449814079
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1295,9 +1295,8 @@ MonoBehaviour:
   - {fileID: 4251037474978978034}
   - {fileID: 3830800197703224164}
   - {fileID: 4732724462013002600}
-  AllSummonsInMap:
-  - {fileID: 0}
-  SummonPrefab: {fileID: 0}
+  AllSummonsInMap: []
+  SummonPrefab: {fileID: 3187752064844288951, guid: 38749a7fe8c955b46a6640b08e8be47e, type: 3}
   gameManager: {fileID: 0}
 --- !u!1 &6895113197955181934
 GameObject:
@@ -1693,7 +1692,8 @@ MonoBehaviour:
   Health: 1
   MaxHealth: 30
   gameManager: {fileID: 0}
-  playerCorpsePrefab: {fileID: 5028972569930208734, guid: 1914b3a356f316c4d92ad6d7e23b2be1, type: 3}
+  playerCorpsePrefab: {fileID: 1520277712931067652, guid: 1914b3a356f316c4d92ad6d7e23b2be1, type: 3}
+  summonSpawner: {fileID: 3756997813897416899}
 --- !u!114 &2539966293739068054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SightRange: 3
-  PlayerAttackCoolDown: 0.4
+  PlayerAttackCoolDown: 0.3
   PlayerHealDelay: 1
   TempPlayerAttackCoolDown: 0
   player: {fileID: 6664337936657909589}
