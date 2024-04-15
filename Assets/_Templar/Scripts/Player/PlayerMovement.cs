@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Sounds")]
     public SoundKit[] soundsForDashing;
     public SoundKit[] soundsWalkForWalking;
+    public SoundKit[] soundsForInteract;
     void Update()
     {
         if (Input.GetButtonDown("Jump")) StartDash();
@@ -32,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CantStartDash) return;
         Dashing = true;
-        foreach (var item in soundsForDashing) item.Play();
+        if(WishDir.magnitude > 0.3f) foreach (var item in soundsForDashing) item.Play();
+        else foreach (var item in soundsForInteract) item.Play();
         CantStartDash = true;
         Invoke("EndDash", DashLengthInSeconds);
         Invoke("EndDashCoolDown", DashLengthInSeconds + DashCoolDownAfterEndOfDash);

@@ -32,6 +32,7 @@ public class SummonMovement : MonoBehaviour
             }
             else
             {
+                Debug.Log("Enemy gone returning to idle");
                 summon.SetSummonStateToIdle();
             }
         }

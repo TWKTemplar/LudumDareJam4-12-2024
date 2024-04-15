@@ -46,7 +46,7 @@ public class Summon : MonoBehaviour
         if (player == null) player = FindObjectOfType<Player>();
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (enemySpawner == null) enemySpawner = FindObjectOfType<EnemySpawner>();
-        InvokeRepeating("SlowUpdate", Random.value+1, 1);
+        //InvokeRepeating("SlowUpdate", Random.value+1, 1);
         ApplyRandomPositionBias();
     }
     private void ApplyRandomPositionBias()
@@ -74,7 +74,7 @@ public class Summon : MonoBehaviour
         CurrentState = summonState;
     }
 
-    public void SlowUpdate()
+    public void Update()
     {
         if(CurrentState == summonState.ReturnToPlayer)
         {
@@ -100,7 +100,7 @@ public class Summon : MonoBehaviour
         {
             if (IsPlayerWithinSight())
             {
-                var closestEnemy = enemySpawner.GetClosestEnemy(transform.position,SightRange);
+                closestEnemy = enemySpawner.GetClosestEnemy(transform.position,SightRange);
                 if (closestEnemy != null)
                 {
                     SetSummonStateToAttack();

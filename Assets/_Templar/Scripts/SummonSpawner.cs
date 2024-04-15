@@ -60,7 +60,7 @@ public class SummonSpawner : MonoBehaviour
     {
         OnSummonsChange();
         AllSummonsInMap.Remove(summon);
-        Destroy(summon);
+        Destroy(summon.gameObject);
     }
     public Summon GetClosestSummon(float sightRange = 7)
     {
