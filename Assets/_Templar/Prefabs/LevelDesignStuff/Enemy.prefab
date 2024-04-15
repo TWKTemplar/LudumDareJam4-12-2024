@@ -233,9 +233,9 @@ GameObject:
   - component: {fileID: 7863183879768669589}
   - component: {fileID: 3040679838398227949}
   - component: {fileID: 8882289990537457031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Summon1Mesh
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  LookingRight: 1
+  LookingRight: 0
   RightRot: {x: -90, y: 0, z: 0}
   LeftRot: {x: -90, y: 180, z: 0}
 --- !u!1001 &2208719664361914617

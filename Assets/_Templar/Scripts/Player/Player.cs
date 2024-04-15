@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         if(MaxHealth == Health)
         {
             summonSpawner.SpawnSummon();
-            Health = 1;
+            Health = Mathf.RoundToInt(MaxHealth*0.5f);
             OnHPChange();
         }
     }

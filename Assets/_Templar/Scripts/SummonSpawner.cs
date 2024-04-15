@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SummonSpawner : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SummonSpawner : MonoBehaviour
     public List<Summon> AllSummonsInMap;
     public Summon SummonPrefab;
     public GameManager gameManager;
+    public UnityEvent OnSummonSpawn;
     public void GetAllSummons()
     {
         AllSummonsInMap.Clear();
@@ -40,6 +42,7 @@ public class SummonSpawner : MonoBehaviour
     [ContextMenu("Spawn Summon")]
     public void SpawnSummon()
     {
+        OnSummonSpawn.Invoke();
         if (SummonPrefab == null)
         {
             Debug.LogError("No Summon Prefab to spawn");

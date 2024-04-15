@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 7346551459576367420}
   - component: {fileID: 235628137083582957}
   - component: {fileID: 1533875081585861758}
-  - component: {fileID: 3217060304469763173}
   m_Layer: 3
   m_Name: DeleteMe
   m_TagString: Prop
@@ -112,8 +111,8 @@ Transform:
   m_GameObject: {fileID: 2003006619574930651}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.541, z: 0}
-  m_LocalScale: {x: 0.37244, y: 0.49663192, z: 0.37244}
+  m_LocalPosition: {x: 0, y: 0.4947, z: 0}
+  m_LocalScale: {x: 0.14651501, y: 0.56985724, z: 0.14651501}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2472528376012442742}
@@ -146,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 6795462705980167066, guid: 5b614648a2eb3114aa057bf62ab5bc8f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,29 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3217060304469763173
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003006619574930651}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &3821134340598014821
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +182,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2235699881660749831
 Transform:
@@ -235,8 +211,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
-  m_Range: 10
+  m_Intensity: 3
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -274,7 +250,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -295,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2472528376012442742}
   - component: {fileID: 8092375308298395666}
+  - component: {fileID: 8796089988764094023}
   m_Layer: 3
   m_Name: TorchProp
   m_TagString: Prop
@@ -338,7 +315,23 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.26715636
+  m_Radius: 0.13124382
   m_Height: 1.3799651
   m_Direction: 1
-  m_Center: {x: 0.11277461, y: 0.3107524, z: 0.12006903}
+  m_Center: {x: 0, y: 0.3107524, z: 0}
+--- !u!208 &8796089988764094023
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994486763616646119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.1312438, y: 0.6899825, z: 0.1312438}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.3107524, z: 0}
+  m_TimeToStationary: 0.5
