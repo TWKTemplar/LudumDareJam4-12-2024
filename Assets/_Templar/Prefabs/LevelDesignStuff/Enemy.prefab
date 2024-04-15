@@ -178,8 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1747109976254134549}
   myNavAgent: {fileID: 6846199067086762564}
-  EnemyWalkSpeed: 4
-  EnemyRunSpeed: 10
+  EnemyWalkSpeed: 2
+  EnemyRunSpeed: 3.5
   soundsForRunning:
   - {fileID: 770435206574202412}
   soundsForWalking:
@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6224845256756155334}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: 0.7071068, w: -0.000000030908623}
   m_LocalPosition: {x: 0, y: -0.205, z: -0}
   m_LocalScale: {x: 1.7725835, y: 1.7725831, z: 1.7725831}
   m_ConstrainProportionsScale: 0
