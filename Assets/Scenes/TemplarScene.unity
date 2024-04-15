@@ -1324,6 +1324,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 824685737768356198, guid: ef28abbc32b27034f8ea8c3c97821b45, type: 3}
+      propertyPath: MaxMusicVolume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3014565716646861141, guid: ef28abbc32b27034f8ea8c3c97821b45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.20441273

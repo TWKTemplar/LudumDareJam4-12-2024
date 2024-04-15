@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 TargetVelocity;
     public Rigidbody rb;
     public Collider col;
+    [Header("Sounds")]
+    public SoundKit[] soundsForDashing;
+    public SoundKit[] soundsWalkForWalking;
     void Update()
     {
         if (Input.GetButtonDown("Jump")) StartDash();
@@ -29,13 +32,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CantStartDash) return;
         Dashing = true;
+        foreach (var item in soundsForDashing) item.Play();
         CantStartDash = true;
         Invoke("EndDash", DashLengthInSeconds);
         Invoke("EndDashCoolDown", DashLengthInSeconds + DashCoolDownAfterEndOfDash);
     }
     public void EndDash()
     {
-        if(Dashing == true) Dashing = false;
+        if(Dashing == true)
+        {
+            foreach (var item in soundsForDashing) item.Stop();
+            Dashing = false;
+        }
     }
     public void EndDashCoolDown()
     {
@@ -50,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             //Vector3 targetVelocity = Vector3.Lerp(rb.velocity, TargetVelocity, ChangeDirectionSpeed);
             rb.AddForce(Vector3.right * Mathf.Clamp(-velocity.x + TargetVelocity.x, -1, 1) * ChangeDirectionSpeed);
             rb.AddForce(Vector3.forward * Mathf.Clamp(-velocity.z + TargetVelocity.z,-1,1)* ChangeDirectionSpeed);
+            foreach (var item in soundsWalkForWalking) item.PlayLoop();
+        }
+        else
+        {
+            foreach (var item in soundsWalkForWalking) item.Stop();
         }
     }
     private void OnValidate()

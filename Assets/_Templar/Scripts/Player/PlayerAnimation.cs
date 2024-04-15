@@ -10,14 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(Mathf.Abs(playerMovement.WishDir.x) > 0.1f)
         {
-            if (playerMovement.WishDir.x > 0f)
-            {
-                myAnim.SetBool("LookingLeft", false);
-            }
-            else 
-            {
-                myAnim.SetBool("LookingLeft", true);
-            }
+            myAnim.SetBool("LookingLeft", !(playerMovement.WishDir.x > 0f));
         }
+        myAnim.SetBool("Dashing", playerMovement.Dashing);
     }
 }
